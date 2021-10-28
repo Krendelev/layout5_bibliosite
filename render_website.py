@@ -7,6 +7,9 @@ from more_itertools import chunked
 PAGES_DIR = "pages"
 BOOKS_ON_PAGE = 10
 
+env = Environment(
+    loader=FileSystemLoader("."), autoescape=select_autoescape(["html"])
+)
 
 def render():
     os.makedirs(PAGES_DIR, exist_ok=True)
@@ -28,7 +31,4 @@ def render():
 
 
 if __name__ == "__main__":
-    env = Environment(
-        loader=FileSystemLoader("."), autoescape=select_autoescape(["html"])
-    )
     render()
